@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta name="description" content="Plan, track, and manage your tasks with the TaskFlow calendar." />
+    <title>To-Do List | TaskFlow</title>
+    <link rel="icon" href="../assets/images/taskflow-mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="todo.css" />
+    <script src="todo.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navigation page-width" aria-label="Main navigation">
+        <a class="brand" href="../home/home.html" aria-label="TaskFlow home">
+          <img src="../assets/images/taskflow-mark.svg" alt="" width="40" height="40" />
+          <span>Task<span class="brand-accent">Flow</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="navigation-links" id="primary-menu">
+          <a href="../home/home.html">Home</a>
+          <a href="todo.html" aria-current="page">To-Do List</a>
+          <a href="../contact/contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-width todo-page">
+      <section class="page-intro">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL PLANNER</p>
+          <h1>To-Do List</h1>
+          <p>Make a plan, one task at a time.</p>
+        </div>
+        <button class="button button-primary" id="add-task-button" type="button"><span aria-hidden="true">＋</span> Add Task</button>
+      </section>
+
+      <section class="dashboard" aria-label="Task summary">
+        <article class="summary-card summary-total"><span class="summary-icon" aria-hidden="true">▤</span><div><p>Total tasks</p><strong id="total-count">0</strong></div></article>
+        <article class="summary-card summary-completed"><span class="summary-icon" aria-hidden="true">✓</span><div><p>Completed</p><strong id="completed-count">0</strong></div></article>
+        <article class="summary-card summary-pending"><span class="summary-icon" aria-hidden="true">◷</span><div><p>Pending</p><strong id="pending-count">0</strong></div></article>
+        <article class="summary-card summary-overdue"><span class="summary-icon" aria-hidden="true">!</span><div><p>Overdue</p><strong id="overdue-count">0</strong></div></article>
+      </section>
+
+      <p class="storage-notice" id="storage-notice" role="status" hidden></p>
+
+      <section class="planner-layout" aria-label="Calendar and tasks">
+        <div class="calendar-card">
+          <div class="calendar-heading">
+            <div>
+              <p class="eyebrow">PLAN YOUR MONTH</p>
+              <h2 id="month-heading" aria-live="polite"></h2>
+            </div>
+            <div class="calendar-controls">
+              <button class="icon-button today-button" id="today-button" type="button">Today</button>
+              <button class="icon-button" id="previous-month" type="button" aria-label="Previous month">‹</button>
+              <button class="icon-button" id="next-month" type="button" aria-label="Next month">›</button>
+            </div>
+          </div>
+          <div class="calendar-grid" id="calendar-grid" role="grid" aria-labelledby="month-heading"></div>
+          <div class="calendar-legend"><span><i class="legend-dot legend-pending"></i> Has tasks</span><span><i class="legend-dot legend-done"></i> Completed</span></div>
+        </div>
+
+        <aside class="tasks-card" aria-labelledby="task-panel-heading">
+          <div class="task-panel-heading">
+            <div><p class="eyebrow">YOUR SCHEDULE</p><h2 id="task-panel-heading">Tasks</h2></div>
+            <span class="task-count" id="visible-task-count">0</span>
+          </div>
+          <p class="selected-date" id="selected-date-label"></p>
+          <div class="filter-list" role="group" aria-label="Filter tasks">
+            <button class="filter-button is-active" type="button" data-filter="selected" aria-pressed="true">Selected Date</button>
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="false">All Tasks</button>
+            <button class="filter-button" type="button" data-filter="today" aria-pressed="false">Today</button>
+            <button class="filter-button" type="button" data-filter="previous" aria-pressed="false">Previous Days</button>
+            <button class="filter-button" type="button" data-filter="upcoming" aria-pressed="false">Upcoming</button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+            <button class="filter-button" type="button" data-filter="pending" aria-pressed="false">Pending</button>
+            <button class="filter-button" type="button" data-filter="overdue" aria-pressed="false">Overdue</button>
+          </div>
+          <div class="task-list" id="task-list" aria-live="polite"></div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner page-width">
+        <a class="brand footer-brand" href="../home/home.html"><img src="../assets/images/taskflow-mark.svg" alt="" width="32" height="32" /><span>Task<span class="brand-accent">Flow</span></span></a>
+        <p>Make every day a little more intentional.</p>
+        <a class="footer-contact" href="../contact/contact.html">Get in touch <span aria-hidden="true">→</span></a>
+      </div>
+    </footer>
+
+    <dialog class="task-dialog" id="task-dialog" aria-labelledby="dialog-title">
+      <form id="task-form" novalidate>
+        <div class="dialog-heading">
+          <div><p class="eyebrow">KEEP IT MOVING</p><h2 id="dialog-title">Add a task</h2></div>
+          <button class="dialog-close" id="close-dialog" type="button" aria-label="Close task form">×</button>
+        </div>
+        <label class="form-field" for="task-title">Task title
+          <input id="task-title" name="title" type="text" maxlength="120" required autocomplete="off" aria-describedby="title-error" aria-invalid="false" />
+          <span class="field-error" id="title-error"></span>
+        </label>
+        <label class="form-field" for="task-due-date">Due date
+          <input id="task-due-date" name="dueDate" type="date" required aria-describedby="date-error" aria-invalid="false" />
+          <span class="field-error" id="date-error"></span>
+        </label>
+        <div class="dialog-actions">
+          <button class="button button-secondary" id="cancel-dialog" type="button">Cancel</button>
+          <button class="button button-primary" id="save-task-button" type="submit">Save task</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

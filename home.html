@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta name="description" content="TaskFlow helps you plan your day, manage tasks, and stay organized." />
+    <title>TaskFlow | Plan smarter</title>
+    <link rel="icon" href="../assets/images/taskflow-mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="home.css" />
+    <script src="home.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navigation page-width" aria-label="Main navigation">
+        <a class="brand" href="home.html" aria-label="TaskFlow home">
+          <img src="../assets/images/taskflow-mark.svg" alt="" width="40" height="40" />
+          <span>Task<span class="brand-accent">Flow</span></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="navigation-links" id="primary-menu">
+          <a href="home.html" aria-current="page">Home</a>
+          <a href="../todo/todo.html">To-Do List</a>
+          <a href="../contact/contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero page-width">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> MAKE ROOM FOR WHAT MATTERS</p>
+          <h1>Plan Smarter.<br /><span>Stay Organized.</span></h1>
+          <p class="hero-description">
+            A calmer day starts with a clear plan. Keep your tasks in view, make steady progress, and give your best ideas room to grow.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="../todo/todo.html">Manage Tasks <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="../contact/contact.html">Contact Us</a>
+          </div>
+          <div class="hero-note"><span class="note-check" aria-hidden="true">✓</span> Simple plans. Meaningful progress.</div>
+        </div>
+        <div class="hero-art" aria-label="A preview of a weekly task plan" role="img">
+          <div class="art-glow"></div>
+          <div class="planner-card">
+            <div class="planner-top">
+              <div>
+                <p class="planner-overline">YOUR SPACE</p>
+                <h2>Today’s focus</h2>
+              </div>
+              <span class="planner-date">MON, 12 OCT</span>
+            </div>
+            <div class="progress-label"><span>Daily progress</span><strong>3 of 5</strong></div>
+            <div class="progress-track"><span></span></div>
+            <ul class="preview-tasks">
+              <li class="is-done"><span class="task-check" aria-hidden="true">✓</span><span>Review project notes</span><small>9:00 AM</small></li>
+              <li class="is-done"><span class="task-check" aria-hidden="true">✓</span><span>Plan the week ahead</span><small>10:30 AM</small></li>
+              <li><span class="task-check" aria-hidden="true"></span><span>Build something great</span><small>12:00 PM</small></li>
+            </ul>
+            <div class="planner-footer"><span class="avatar-stack" aria-hidden="true"><i>✓</i><i>✦</i></span><span>One step at a time</span><span class="footer-spark" aria-hidden="true">✦</span></div>
+          </div>
+          <div class="floating-note"><span aria-hidden="true">✦</span><div><strong>Small steps</strong><small>add up to big things</small></div></div>
+          <span class="decor-dot decor-dot-one" aria-hidden="true"></span>
+          <span class="decor-dot decor-dot-two" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="features page-width" aria-labelledby="features-heading">
+        <div class="section-heading">
+          <p class="eyebrow">YOUR DAY, IN GOOD ORDER</p>
+          <h2 id="features-heading">Everything you need to move forward</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon icon-calendar" aria-hidden="true">▦</span>
+            <h3>See the big picture</h3>
+            <p>Map tasks across a simple monthly calendar and know what’s coming next.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon icon-check" aria-hidden="true">✓</span>
+            <h3>Focus on today</h3>
+            <p>Keep the important things close and celebrate each finished task.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon icon-spark" aria-hidden="true">✦</span>
+            <h3>Make it your own</h3>
+            <p>Build a routine that works for you, one manageable step at a time.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner page-width">
+        <a class="brand footer-brand" href="home.html">
+          <img src="../assets/images/taskflow-mark.svg" alt="" width="32" height="32" />
+          <span>Task<span class="brand-accent">Flow</span></span>
+        </a>
+        <p>Make every day a little more intentional.</p>
+        <span class="footer-copyright">© <span id="current-year"></span> TaskFlow</span>
+      </div>
+    </footer>
+  </body>
+</html>
